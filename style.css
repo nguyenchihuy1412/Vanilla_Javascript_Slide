@@ -1,0 +1,180 @@
+/* General style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body ::selection {
+  background-color: yellow;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: #555;
+}
+/* Main Style */
+.box {
+  position: relative;
+  overflow: hidden;
+  background-color: grey;
+}
+.slides {
+  position: absolute;
+}
+.slides .one,
+.two,
+.three,
+.four {
+  position: absolute;
+}
+.box,
+.slides {
+  width: 100%;
+  height: 100%;
+}
+.box .slides .active {
+  opacity: 1;
+}
+.slides .one,
+.two,
+.three,
+.four {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+}
+.navigation {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  width: 100%;
+}
+.navigation i {
+  font-size: 120px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+.navigation i:hover {
+  color: #111;
+}
+
+/* Animation for slides */
+
+.activeSlideFadeNext {
+  animation: activeNext 0.5s ease-in forwards;
+}
+
+@keyframes activeNext {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.activeSlideFadePrevious {
+  animation: activePrevious 0.5s ease-in forwards;
+}
+
+@keyframes activePrevious {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.nextSlideFade {
+  animation: fadeNext 0.5s ease-in forwards;
+}
+
+@keyframes fadeNext {
+  from {
+    transform: translateX(-100%) scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.previousSlideFade {
+  animation: fadePrevious 0.5s ease-in forwards;
+}
+
+@keyframes fadePrevious {
+  from {
+    transform: translateX(100%) scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Footer */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #607d8b;
+  color: #fff;
+  padding: 10px 10px 0 0;
+  margin-top: 50px;
+}
+
+footer ul {
+  display: flex;
+}
+
+footer i {
+  align-items: center;
+  color: goldenrod;
+}
+
+footer ul li {
+  margin-left: 16px;
+  list-style: none;
+}
+
+footer p {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  font-size: 14px;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  footer {
+    flex-direction: column;
+  }
+
+  footer p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  footer ul li {
+    margin: 0 8px;
+  }
+}
